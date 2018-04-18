@@ -1,41 +1,57 @@
-<?php define('DOC_ROOT_PATH', $_SERVER['DOCUMENT_ROOT'].'/'); ?>
 <?php require_once("includes/sessions.php");  ?>
 <?php require_once("includes/db_connection.php");  ?>
 <?php require_once("includes/functions.php");  ?>
 <?php
-confirm_logged_in($_SESSION['user_id']);
+$items = get_data('items');
 ?>
 <?php include("includes/layouts/header.php"); ?>
 	<div class="container">
 		<div class="row">
 				<div class="col-sm-12">
-				<h2>All Users</h2>
-                <table class="table table-hover">
+				<h2>All Items (Testing)</h2>
+                <table class="table table-hover table-default">
 					<tr>
-						<td>Name</td>
-						<td>Email</td>
-						<td>Password</td>
-						<td>Role_id</td>
+						<td>ID</td>
+						<td>Type</td>
+						<td>Title</td>
+						<td>Description</td>
+						<td>Price</td>
+						<td>Weight</td>
+						<td>Link</td>
+						<td>Action</td>
 					</tr>
-					<?php while($user = $users->fetch_assoc()) { ?>
-					
+					<?php while($item = $items->fetch_assoc()) { ?>
 					<tr>
 						<td>
-							<?php echo htmlentities($user["name"]); ?>
+							<?php echo htmlentities($item["id"]); ?>
 						</td>
 						<td>
-							<?php echo htmlentities($user["email"]); ?>
+						<?php 
+						    echo get_type($item['type_id']);
+							?>
+		
 						</td>
 						<td>
-							<?php echo htmlentities($user["password"]); ?>
+							<?php echo htmlentities($item["title"]); ?>
 						</td>
 						<td>
-							<?php echo htmlentities($user["role_id"]); ?>
+							<?php echo htmlentities($item["description"]); ?>
+						</td>
+						<td>
+							<?php echo "$".htmlentities($item["price"]); ?>
+						</td>
+						<td>
+							<?php echo htmlentities($item["weight"]); ?>
+						</td>
+						<td>
+							<?php echo htmlentities($item["link"]); ?>
+						</td>
+						<td>
+							<a href="edit_item.php/?id=<?php echo $item['id']?>">Edit</a>
 						</td>
 					</tr>
-					<?php } ?>
+					<?php } ?>			
 				</table>
-				
 			</div>
 	</div>
 	

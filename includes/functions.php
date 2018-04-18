@@ -86,15 +86,6 @@ function create_tables() {
 		FOREIGN KEY (type_id) REFERENCES types(id)
 	);
 
-	CREATE TABLE images (
-		id INT NOT NULL AUTO_INCREMENT,
-		item_id INT NOT NULL,
-		title varchar(30) NOT NULL,
-		path varchar(255) NOT NULL,
-		PRIMARY KEY (id),
-		FOREIGN KEY (item_id) REFERENCES items(id)
-	);
-
 	CREATE TABLE locations (
 		id INT NOT NULL AUTO_INCREMENT,
 		loadout_id INT NOT NULL,

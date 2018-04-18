@@ -1,10 +1,9 @@
-<?php define('DOC_ROOT_PATH', $_SERVER['DOCUMENT_ROOT'].'/'); ?>
 <?php require_once("includes/sessions.php");  ?>
 <?php require_once("includes/db_connection.php");  ?>
 <?php require_once("includes/functions.php");  ?>
 <?php
 confirm_logged_in($_SESSION['user_id']);
-$users = view_users();
+$items = view_users($items);
 ?>
 <?php include("includes/layouts/header.php"); ?>
 	<div class="container">

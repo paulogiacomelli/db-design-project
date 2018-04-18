@@ -35,7 +35,7 @@ $loadout_set = get_loadouts();
 		<div class="row">
 			<div class="col-sm-12">
 			<?php echo message();?>
-			<p>Equip Item to Equip Item to Loadout 0. <br>Others are equipped and I am not checking for duplicates.</p>
+			<p>Add: Item to Equip Item to Loadout 0. <br>Others are equipped and I am not checking for duplicates.</p>
 				<form class="form" action="equip_inventory.php" method="post">
 
 					<div class="form-group">

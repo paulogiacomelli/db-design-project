@@ -26,7 +26,8 @@ if (isset($_POST['submit'])) {
       redirect_to("user.php");
     } else {
       // Failure
-      $_SESSION["message"] = "Username and Password not found.";
+      echo "Email and Password not found!";
+      //$_SESSION["message"] = "Username and Password not found.";
     }
 } else {
   // This is probably a GET request

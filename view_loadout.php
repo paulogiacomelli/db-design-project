@@ -1,4 +1,3 @@
-<?php define('DOC_ROOT_PATH', $_SERVER['DOCUMENT_ROOT'].'/'); ?>
 <?php require_once("includes/sessions.php");  ?>
 <?php require_once("includes/db_connection.php");  ?>
 <?php require_once("includes/functions.php");  ?>

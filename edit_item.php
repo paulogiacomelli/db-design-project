@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
 					
 					<div class="form-group">
 						<label>Price ($)</label>
-						<input required type="number" name="price" value="<?php echo $item['price'] ?>">
+						<input required type="float" name="price" value="<?php echo $item['price'] ?>">
 					</div>
 					
 					<div class="form-group">
