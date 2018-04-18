@@ -3,7 +3,7 @@
 <?php require_once("includes/functions.php");  ?>
 <?php
 confirm_logged_in($_SESSION['user_id']);
-$items = view_users($items);
+$users = view_users();
 ?>
 <?php include("includes/layouts/header.php"); ?>
 	<div class="container">
