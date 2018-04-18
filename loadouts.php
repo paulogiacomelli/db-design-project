@@ -45,7 +45,7 @@ $date = date('m/d/Y', strtotime($date_loadout['created_at']));
 							?>
 						</td>
 						<td>
-							<a href="/view_loadout.php/?id=<?php echo $loadout['id']?>">View</a>
+							<a href="<?php URL ?>view_loadout.php/?id=<?php echo $loadout['id']?>">View</a>	
 						</td>
 					</tr>
 					<?php } ?>			

@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
 	$result = $conn->query($update);
     if ($result) {
       $_SESSION["message"] = "Item edit sucessfully.";
-	  redirect_to("/view_item.php?id=".$item_id);
+	  redirect_to("edit_item.php?id=".$item_id);
     } else {
 	  echo "Error: " . $update . "<br>" . $conn->error;
       $_SESSION["message"] = "Editing item failed.";
@@ -39,11 +39,10 @@ if (isset($_POST['submit'])) {
 <?php include("includes/layouts/header.php"); ?>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-6">
-				<a class="btn btn-warning" href="user.php">Home</a>
-			</div>
-			<div class="col-sm-6">
-				<form class="form" action="/edit_item.php/?id=<?php echo $item['id']; ?>" method="post">
+			<div class="col-sm-12">
+			<?php echo message();?>
+
+				<form class="form" action="edit_item.php/?id=<?php echo $item['id']; ?>" method="post">
 
 					<div class="form-group">
 						<label>Title</label>

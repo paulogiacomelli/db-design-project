@@ -12,6 +12,5 @@
 <body>
 <div class="jumbotron text-center">
 	<h1>OGC App</h1>
-	<h4><a href="/user.php">HOME</a></h4>
-	<p><?php echo $_SESSION['email'] ?></p>
+	<h4><a href="<?php echo URL ?>user.php">HOME</a></h4>
 </div>

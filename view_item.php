@@ -1,11 +1,9 @@
-<?php define('DOC_ROOT_PATH', $_SERVER['DOCUMENT_ROOT'].'/'); ?>
 <?php require_once("includes/sessions.php");  ?>
 <?php require_once("includes/db_connection.php");  ?>
 <?php require_once("includes/functions.php");  ?>
 <?php
 confirm_logged_in($_SESSION['user_id']);
 $id = $_GET['id'];
-
 $item = find_item($id);
 
 ?>
@@ -51,7 +49,7 @@ $item = find_item($id);
 							<?php echo htmlentities($item["link"]); ?>
 						</td>
 						<td>
-							<a href="/edit_item.php/?id=<?php echo $item['id']?>">Edit</a>
+							<a href="<?php echo URL ?>edit_item.php/?id=<?php echo $item['id']?>">Edit</a>
 						</td>
 					</tr>
 				</table>

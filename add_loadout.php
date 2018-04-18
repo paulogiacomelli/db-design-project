@@ -25,22 +25,20 @@ if (isset($_POST['submit'])) {
 	  add_loadout($user_id, $last_id);
 	  date_loadout($last_id);
 		
-      $_SESSION["message"] = "Item added sucessfully.";
-	  redirect_to("user.php");
+      $_SESSION["message"] = "Loadout added sucessfully.";
+	  redirect_to("add_loadout.php");
     } else {
 	  echo "Error: " . $insert . "<br>" . $conn->error;
-      $_SESSION["message"] = "Adding item failed.";
+      $_SESSION["message"] = "Adding loadout failed.";
     }
-
 }
 ?>
 <?php include("includes/layouts/header.php"); ?>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-6">
-				<a class="btn btn-warning" href="user.php">Home</a>
-			</div>
-			<div class="col-sm-6">
+			<div class="col-sm-12">
+			<?php echo message();?>
+
 				<form class="form" action="add_loadout.php" method="post">
 
 					<div class="form-group">

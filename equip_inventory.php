@@ -13,15 +13,16 @@ if (isset($_POST['submit'])) {
 	$sql = "INSERT INTO loadout_items (";
 	$sql .= " loadout_id, item_id";
 	$sql .= ") VALUES (";
-	$sql .= " {$loadout['id']}, {$item[id]}";
+	$sql .= " {$loadout['id']}, {$item['id']}";
 	$sql .= ")";
 	
 	$result = $conn->query($sql);
 	
 	if ($result) {
-		echo "Item added to loadout";
+		$_SESSION["message"] = "Item added to loadout.";
 	} else {
 		echo "Error: " . $sql . "<br>" . $conn->error;
+		$_SESSION["message"] = "Problem adding to loadout.";
 	}
 } 
 
@@ -32,10 +33,9 @@ $loadout_set = get_loadouts();
 <?php include("includes/layouts/header.php"); ?>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-6">
-				<a class="btn btn-warning" href="user.php">Home</a>
-			</div>
-			<div class="col-sm-6">
+			<div class="col-sm-12">
+			<?php echo message();?>
+			<p>Equip Item to Equip Item to Loadout 0. <br>Others are equipped and I am not checking for duplicates.</p>
 				<form class="form" action="equip_inventory.php" method="post">
 
 					<div class="form-group">

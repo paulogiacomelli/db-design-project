@@ -3,17 +3,12 @@
 <?php require_once("includes/db_connection.php");  ?>
 <?php require_once("includes/functions.php");  ?>
 <?php
-confirm_logged_in($_SESSION['user_id']);
+// confirm_logged_in($_SESSION['user_id']);
 if(isset($_GET['create_tables'])) {
 	create_tables();
 }
 if(isset($_GET['seed_tables'])) {
-	$value = seed_tables();
-	if ($value === TRUE) {
-		echo "New records created successfully";
-	} else{
-		echo "Error: " . $sql . "<br>" . $conn->error;
-	}
+	seed_tables();
 }
 if(isset($_GET['drop_db'])) {
 	drop_db();
@@ -22,8 +17,6 @@ if(isset($_GET['drop_db'])) {
 if(isset($_GET['create_db'])) {
 	create_db();
 }
-
-// Load all users
 ?>
 <?php include("includes/layouts/header.php"); ?>
 	<div class="container">

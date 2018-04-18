@@ -1,9 +1,10 @@
 <?php 
 require_once('vendor/fzaninotto/faker/src/autoload.php');
+define('URL', 'http://students.cs.umt.edu/~pg216938/db-design-project/');
 
 // General Functions
 function redirect_to($new_location) {
-	header("Location: " . $new_location);
+	header("Location: " . URL.$new_location);
 	exit;
 }
 
@@ -136,14 +137,21 @@ function create_tables() {
 		FOREIGN KEY (item_id) REFERENCES items(id)
 	);
 	";
-	return $conn->multi_query($sql);
-	//return $query;
+
+	if($sql) {
+		echo "DB tables created";
+		return $conn->multi_query($sql);
+	} else {
+		echo "Error: " . $sql . "<br>" . $conn->error;
+		return null;
+	}
 }
 
 function drop_db() {
 	global $conn;
 	
 	$drop = "DROP DATABASE pg216938";
+
 	if($drop) {
 		echo "DB dropped";
 		return $conn->query($drop);
@@ -154,15 +162,19 @@ function drop_db() {
 }
 
 function create_db() {
-	$db = new mysqli("127.0.0.1", "root", "");
+	$db = new mysqli("localhost", "pg216938", "ier0phie6phahT8ahpai");
 
-	
 	$create = "CREATE DATABASE pg216938";
-	return $db->query($create);
 
+	if($create) {
+		echo "<br>DB created";
+		return $db->query($create);
+	} else {
+		echo "Error: " . $sql . "<br>" . $conn->error;
+		return null;
+	}
 	
 	}
-
 
 function seed_tables() {
 	global $conn;
@@ -217,9 +229,15 @@ function seed_tables() {
 		$sql .= $faker->randomNumber($nbDigits = 2).', ';
 		$sql .= '"'.$faker->randomElement(["Hard","Medium","Easy"]).'"), ';
 	}
-		$sql .= "(10, 'Lolo Peak', 'Lolo', 5, 'Very Intense'); ";	
-		echo $sql;
-	return $conn->multi_query($sql);
+		$sql .= "(10, 'Lolo Peak', 'Lolo', 5, 'Very Intense'); ";
+
+	if($sql) {
+		echo "DB tables seeded";
+		return $conn->multi_query($sql);
+	} else {
+		echo "Error: " . $sql . "<br>" . $conn->error;
+		return null;
+	}
 	
 }
 

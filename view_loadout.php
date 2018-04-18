@@ -44,7 +44,8 @@ $items = get_loadout_items($id);
 							<?php echo $date; ?>
 						</td>
 						<td>
-							<a href="/edit_loadout.php/?id=<?php echo $loadout['id']?>">Edit</a>
+							<a href="<?php echo URL ?>edit_loadout.php/?id=<?php echo $loadout['id']?>">Edit</a>
+
 						</td>
 					</tr>
 				</table>
@@ -91,11 +92,10 @@ $items = get_loadout_items($id);
 							<?php echo htmlentities($item["link"]); ?>
 						</td>
 						<td>
-							<a href="/view_item.php/?id=<?php echo $item['id']?>">View</a>
+							<a href="<?php echo URL ?>view_item.php/?id=<?php echo $item['id']?>">View</a>
 						</td>
 					</tr>
 					<?php } ?>			
-
 				</table>				
 		</div>
 		</div>

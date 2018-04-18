@@ -53,10 +53,8 @@ if (isset($_POST['submit'])) {
 <?php include("includes/layouts/header.php"); ?>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-6">
-				<a class="btn btn-warning" href="user.php">Home</a>
-			</div>
-			<div class="col-sm-6">
+			<div class="col-sm-12">
+			<?php echo message();?>
 				<form class="form" action="edit_profile.php" method="post">
 
 					<div class="form-group">

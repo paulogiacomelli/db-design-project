@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
 	$result = $conn->query($update);
     if ($result) {
       $_SESSION["message"] = "Loadout edited sucessfully.";
-	  redirect_to("/user.php");
+	  redirect_to("edit_loadout.php?id={$loadout['id']}");
     } else {
 	  echo "Error: " . $update . "<br>" . $conn->error;
       $_SESSION["message"] = "Editing loadout failed.";
@@ -32,11 +32,9 @@ if (isset($_POST['submit'])) {
 <?php include("includes/layouts/header.php"); ?>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-6">
-				<a class="btn btn-warning" href="user.php">Home</a>
-			</div>
-			<div class="col-sm-6">
-				<form class="form" action="/edit_loadout.php/?id=<?php echo $loadout['id']; ?>" method="post">
+			<div class="col-sm-12">
+			<?php echo message();?>
+				<form class="form" action="edit_loadout.php/?id=<?php echo $loadout['id']; ?>" method="post">
 
 					<div class="form-group">
 						<label>Description</label>
