@@ -15,7 +15,7 @@ $users = view_users();
 						<td>Name</td>
 						<td>Email</td>
 						<td>Password</td>
-						<td>Role_id</td>
+						<td>Role</td>
 					</tr>
 					<?php while($user = $users->fetch_assoc()) { ?>
 					
@@ -30,7 +30,7 @@ $users = view_users();
 							<?php echo htmlentities($user["password"]); ?>
 						</td>
 						<td>
-							<?php echo htmlentities($user["role_id"]); ?>
+							<?php echo get_role($user["role_id"]); ?>
 						</td>
 					</tr>
 					<?php } ?>

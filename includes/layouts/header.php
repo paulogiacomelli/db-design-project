@@ -47,11 +47,11 @@ h1 a:hover {
         Admin Functions
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="user.php?drop_db">DROP DB</a>
-        <a class="dropdown-item" href="user.php?create_db">Create DB</a>
-        <a class="dropdown-item" href="user.php?create_tables">Create DB Tables</a>
-        <a class="dropdown-item" href="uuser.php?seed_tables">Seed DB Tables</a>
-				<a class="dropdown-item" href="view_users.php">View Users</a>
+        <a class="dropdown-item" href="<?php echo URL ?>user.php?drop_db">DROP DB</a>
+        <a class="dropdown-item" href="<?php echo URL ?>user.php?create_db">Create DB</a>
+        <a class="dropdown-item" href="<?php echo URL ?>user.php?create_tables">Create DB Tables</a>
+        <a class="dropdown-item" href="<?php echo URL ?>user.php?seed_tables">Seed DB Tables</a>
+				<a class="dropdown-item" href="<?php echo URL ?>view_users.php">View Users</a>
       </div>
     </li>
     <li class="nav-item dropdown">

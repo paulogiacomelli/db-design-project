@@ -256,6 +256,17 @@ function view_users() {
 	return $users;
 }
 
+function get_role($id) {
+	global $conn;
+	$sql = "SELECT * FROM roles where id = {$id} LIMIT 1;";
+	$role_set = $conn->query($sql);
+	if($role = $role_set->fetch_assoc()) {
+    	return $role['role'];
+    } else {
+    	return null;
+	}
+}
+
 // 2. Equip an inventory item  - equip_inventory.php
 // 3. View All Loadouts - view_loadouts.php
 // 4. View Item - view_item.php

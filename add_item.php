@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
 	// Process the form
 	$title = trim($_POST['title']);
 	$description = trim($_POST['description']);
-	$link = $_POST['link'];
+	$link = trim($_POST['link']);
 	$price = $_POST['price'];
 	$weight = $_POST['weight'];
 	$type = $_POST['type'];
@@ -43,7 +43,7 @@ if (isset($_POST['submit'])) {
 <?php include("includes/layouts/header.php"); ?>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-8 mx-auto">
 			<?php echo message();?>
 			<?php echo errors();?>
 

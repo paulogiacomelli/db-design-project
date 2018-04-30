@@ -6,14 +6,9 @@ $email = "";
 
 if (isset($_POST['submit'])) {
   // Process the form
-  
-  // Validations
-  
-  //if (empty($errors)) {
-    // Attempt Login
 
-    $email = $_POST["email"];
-    $password = $_POST["password"];
+    $email = trim($_POST["email"]);
+    $password = trim($_POST["password"]);
 
     $found_user = login($email, $password);
 	
@@ -26,37 +21,32 @@ if (isset($_POST['submit'])) {
       redirect_to("user.php");
     } else {
       // Failure
-      echo "Email and Password not found!";
-      //$_SESSION["message"] = "Username and Password not found.";
+      $_SESSION["errors"] = "Username and Password not found.";
     }
-} else {
-  // This is probably a GET request
-  
-} // end: if (isset($_POST['submit']))
-
+} 
 ?>
 <?php include("includes/layouts/header.php"); ?>
-<!-- Main Section -->
-<div class="col-sm-9">
-<div class="container">                
+  <div class="container">
+  <div class="row">
+  <div class="col-sm-4 mx-auto">
+  <?php echo errors() ?>
+  <h2>Login</h2>
 
-      <br>
+<form class="form" action="login.php" method="post">
 
-      <h2>Login</h2>
+<p>Username: 
+<input required class="form-control" type="email" name="email" placeholder="paulo@email.com" value="<?php echo htmlentities($email); ?>"></p> 
 
-      <form class="form" action="login.php" method="post">
+<p>Password: 
+<input required class="form-control" type="password" placeholder="1234" name="password" value=""></p>
 
-      <p>Username: 
-      <input class="" type="text" name="email" placeholder="paulo@email.com" value="<?php echo htmlentities($email); ?>"></p> 
+<input class="btn btn-success" value="Submit" type="submit" name="submit">
 
-      <p>Password: 
-      <input type="password" placeholder="1234" name="password" value=""></p>
+</form>
+  </div>
+  </div>
+  </div>
+     
 
-      <input class="btn btn-success" value="Submit" type="submit" name="submit">
-
-      </form>
- </div>
-
-</div>
 <?php require_once("includes/db_close_connection.php");  ?>
 <?php include("includes/layouts/footer.php"); ?>

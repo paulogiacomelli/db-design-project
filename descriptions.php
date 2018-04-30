@@ -6,7 +6,7 @@
 
 <div class="container">
 <div class="col-sm-12">
-<h2>Functions Description</h2>
+<h2>Function Description</h2>
 <hr>
 <p><strong>Function Number:</strong> 1</p>
 <p><strong>Function Name:</strong>  View Users</p>
@@ -21,7 +21,8 @@ This function allows the user/admin to quickly view all users and their roles.</
 <p><strong>Sample Output:</strong>  List all users in a table with their information and roles</p>
 <p><strong>Notes:</strong> 
 This function is particularly interesting because it allows the admin to quickly view and manage users current in the DB,
-without having the knowledege of actually having to query the DB.</p>
+without having the knowledege of actually having to query the DB. I am also querying the roles table based on the foreign key
+relationship in order to get the actual role, not just the id.</p>
 <hr>
 
 <p><strong>Function Number:</strong> 2</p>
@@ -190,7 +191,7 @@ This function handles error checking by trimming inputs in the backend and requi
 <hr>
 
 <p><strong>Function Number:</strong> 11</p>
-<p><strong>Function Name:</strong>  Drop DB, Create DB, Create Tables, Seed Tables</p>
+<p><strong>Function Name:</strong>  Drop DB, Create DB, Create DB Tables, Seed DB Tables</p>
 <p><strong>URL:</strong> <a href="http://students.cs.umt.edu/~pg216938/db-design-project/user.php">
 http://students.cs.umt.edu/~pg216938/db-design-project/user.php</a><br>General Functions Menu Dropdown.</p> 
 <p><strong>Function Type:</strong> Maintenance Function</p>
