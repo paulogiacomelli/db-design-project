@@ -18,11 +18,13 @@
 	function errors() {
 		if (isset($_SESSION["errors"])) {
 	      $errors = ($_SESSION["errors"]);
-
+		  $output = "<div class=\"alert alert-danger\">";
+	      $output .= htmlentities($_SESSION["errors"]);
+	      $output .= "</div>";
 	      // Clear message
 	      $_SESSION["errors"] = null;
 
-	      return $errors;
+	      return $output;
       	} 
 	}
 

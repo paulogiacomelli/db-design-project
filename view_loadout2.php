@@ -3,15 +3,56 @@
 <?php require_once("includes/functions.php");  ?>
 <?php
 confirm_logged_in($_SESSION['user_id']);
-$items = get_items();
+$id = $_GET['id'];
+
+$loadout = find_loadout($id);
+$date_loadout = get_loadout_date($loadout['id']);
+$date = date('m/d/Y', strtotime($date_loadout['created_at']));
+
+$items = get_loadout_items($id);
+
 ?>
 <?php include("includes/layouts/header.php"); ?>
 	<div class="container">
 		<div class="row">
+				<div class="col-sm-12">
+				<h2>User Loadouts</h2>
+				<table class="table table-hover table-default">
+					<tr>
+						<td>ID</td>
+						<td>Title</td>
+						<td>Notes</td>
+						<td>Weather</td>
+						<td>Created At</td>
+						<td>Action</td>
+					</tr>
+					<tr>
+					<td>
+							<?php echo htmlentities($loadout["id"]); ?>
+						</td>
+						<td>
+							<?php echo htmlentities($loadout["description"]); ?>
+						</td>
+						<td>
+							<?php echo htmlentities($loadout["notes"]); ?>
+						</td>
+						<td>
+							<?php echo htmlentities($loadout["weather"]); ?>
+						</td>
+						<td>
+							<?php echo $date; ?>
+						</td>
+						<td>
+							<a href="<?php echo URL ?>edit_loadout.php/?id=<?php echo $loadout['id']?>">Edit</a>
+
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="row">
 		<div class="col-sm-12">
-			<h2>User Inventory</h2>
-			<a class="btn btn-success" href="<?php echo URL ?>add_item.php">Add an item</a>
-			<br><br>
+			<h2>Items of Loadout</h2>
 			<table class="table table-hover table-default">
 					<tr>
 						<td>ID</td>
@@ -50,13 +91,13 @@ $items = get_items();
 							<?php echo htmlentities($item["link"]); ?>
 						</td>
 						<td>
-							<a href="edit_item.php/?id=<?php echo $item['id']?>">Edit</a>
+							<a href="<?php echo URL ?>view_item.php/?id=<?php echo $item['id']?>">View</a>
 						</td>
 					</tr>
 					<?php } ?>			
-
 				</table>
-			</div>
+                <a class="btn btn-info" href="<?php echo URL ?>equip_inventory2.php/?id=<?php echo $loadout['id']?>">Add Items</a>				
+		</div>
 		</div>
 	</div>
 	<?php require_once("includes/db_close_connection.php");  ?>

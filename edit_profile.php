@@ -53,18 +53,18 @@ if (isset($_POST['submit'])) {
 <?php include("includes/layouts/header.php"); ?>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-8 mx-auto">
 			<?php echo message();?>
 				<form class="form" action="edit_profile.php" method="post">
 
 					<div class="form-group">
 						<label>Date Of Birth</label>
-						<input required type="text" name="dob" value="<?php echo date('m/d/Y', strtotime($personal_info['date_of_birth']));  ?>">
+						<input class="form-control" required type="text" name="dob" value="<?php echo date('m/d/Y', strtotime($personal_info['date_of_birth']));  ?>">
 					</div>
 
 					<div class="form-group">
 						<label>Gender</label>
-						<select name="gender">
+						<select class="form-control" name="gender">
 							<option value="Male">Male</option>
 							<option value="Female">Female</option>
 						</select>
@@ -72,17 +72,17 @@ if (isset($_POST['submit'])) {
 					
 					<div class="form-group">
 						<label>Height (in)</label>
-						<input required type="number" name="height" value="<?php echo $personal_info['height'];?>">
+						<input class="form-control" placeholder="70" required type="number" name="height" value="<?php echo $personal_info['height'];?>">
 					</div>
 					
 					<div class="form-group">
 						<label>Weight (lbs)</label>
-						<input required type="number" name="weight" value="<?php echo $personal_info['weight']; ?>">
+						<input class="form-control" placeholder="190" required type="number" name="weight" value="<?php echo $personal_info['weight']; ?>">
 					</div>
 					
 					<div class="form-group">
 						<label>Fitness Level</label>
-						<select name="fitness_level">
+						<select class="form-control" name="fitness_level">
 							<option value="Beginner">Beginner</option>
 							<option value="Intermediate">Intermediate</option>
 							<option value="Expert">Expert</option>

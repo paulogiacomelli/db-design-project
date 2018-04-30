@@ -3,7 +3,8 @@
 <?php require_once("includes/db_connection.php");  ?>
 <?php require_once("includes/functions.php");  ?>
 <?php
-// confirm_logged_in($_SESSION['user_id']);
+confirm_logged_in($_SESSION['user_id']);
+$loadouts = get_loadouts();
 if(isset($_GET['create_tables'])) {
 	create_tables();
 }
@@ -22,7 +23,7 @@ if(isset($_GET['create_db'])) {
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-			<h3>General Functions</h3>
+			<h3>General Functions - For Testing (Project 3 Initial View)</h3>
 			<p>Operate these in order given.</p>
 				<a class="btn btn-danger" href="user.php?drop_db">1. Drop DB</a>
 				<a class="btn btn-warning" href="user.php?create_db">2. Create DB</a>
@@ -63,5 +64,51 @@ if(isset($_GET['create_db'])) {
 		</div>
 		</div>
 	</div>
+	<div class="container">
+		<div class="row">
+		<div class="col-sm-12">
+			<h2>User Loadouts (Final Project Initial View)</h2>
+			<table class="table table-hover table-default">
+					<tr>
+						<td>ID</td>
+						<td>Description</td>
+						<td>Notes</td>
+						<td>Weather</td>
+						<td>Created At</td>
+						<td>Action</td>
+					</tr>
+					<?php while($loadout = $loadouts->fetch_assoc()) { ?>
+					<tr>
+						<td>
+							<?php echo htmlentities($loadout["id"]); ?>
+						</td>
+						<td>
+						<?php 
+						    echo htmlentities($loadout['description']);
+							?>
+		
+						</td>
+						<td>
+							<?php echo htmlentities($loadout["notes"]); ?>
+						</td>
+						<td>
+							<?php echo htmlentities($loadout["weather"]); ?>
+						</td>
+						<td>
+							<?php 
+							$date_loadout = get_loadout_date($loadout['id']);
+$date = date('m/d/Y', strtotime($date_loadout['created_at']));
+							echo $date;
+							?>
+						</td>
+						<td>
+							<a href="<?php URL ?>view_loadout.php/?id=<?php echo $loadout['id']?>">View</a>	
+						</td>
+					</tr>
+					<?php } ?>			
+
+				</table>
+			</div>
+		</div>
 	<?php require_once("includes/db_close_connection.php");  ?>
 	<?php include("includes/layouts/footer.php"); ?>

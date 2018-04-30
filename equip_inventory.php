@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
 		$_SESSION["message"] = "Item added to loadout.";
 	} else {
 		echo "Error: " . $sql . "<br>" . $conn->error;
-		$_SESSION["message"] = "Problem adding to loadout.";
+		$_SESSION["errors"] = "Problem adding to loadout.";
 	}
 } 
 

@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
 	  redirect_to("add_item.php");
     } else {
 	  echo "Error: " . $insert . "<br>" . $conn->error;
-      $_SESSION["message"] = "Adding item failed.";
+      $_SESSION["errors"] = "Adding item failed.";
     }
 }
 ?>
@@ -45,36 +45,37 @@ if (isset($_POST['submit'])) {
 		<div class="row">
 			<div class="col-sm-12">
 			<?php echo message();?>
+			<?php echo errors();?>
 
 				<form class="form" action="add_item.php" method="post">
 
 					<div class="form-group">
 						<label>Title</label>
-						<input required type="text" name="title" value="<?php echo $title;  ?>">
+						<input class="form-control" placeholder="Some Title" required type="text" name="title" value="<?php echo $title;  ?>">
 					</div>
 
 					<div class="form-group">
 						<label>Description</label>
-						<input required type="text" name="description" value="<?php echo $description;  ?>">
+						<input class="form-control" placeholder="Some Description" required type="text" name="description" value="<?php echo $description;  ?>">
 					</div>
 					
 					<div class="form-group">
 						<label>Price ($)</label>
-						<input required type="float" name="price" value="<?php echo $price ?>">
+						<input class="form-control" placeholder="10.5" required type="float" name="price" value="<?php echo $price ?>">
 					</div>
 					
 					<div class="form-group">
 						<label>Weight</label>
-						<input required type="number" name="weight" value="<?php echo $weight; ?>">
+						<input class="form-control" placeholder="10" required type="number" name="weight" value="<?php echo $weight; ?>">
 					</div>
 					<div class="form-group">
 						<label>Link</label>
-						<input type="text" name="link" value="<?php echo $link; ?>">
+						<input class="form-control" placeholder="amazon.com" type="text" name="link" value="<?php echo $link; ?>">
 					</div>
 					
 					<div class="form-group">
 						<label>Item Type</label>
-						<select name="type">
+						<select class="form-control" name="type">
 							<option value="Head">Head</option>
 							<option value="Torso">Torso</option>
 							<option value="Legs">Legs</option>

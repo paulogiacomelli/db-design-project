@@ -4,14 +4,26 @@
 <?php
 confirm_logged_in($_SESSION['user_id']);
 $loadouts = get_loadouts();
+
+if(isset($_GET['create_tables'])) {
+	create_tables();
+}
+if(isset($_GET['seed_tables'])) {
+	seed_tables();
+}
+if(isset($_GET['drop_db'])) {
+	drop_db();
+
+}
+if(isset($_GET['create_db'])) {
+	create_db();
+}
 ?>
 <?php include("includes/layouts/header.php"); ?>
 	<div class="container">
 		<div class="row">
 		<div class="col-sm-12">
 			<h2>User Loadouts</h2>
-			<a class="btn btn-success" href="<?php echo URL ?>add_loadout.php">Add a loadout</a>
-			<br><br>
 			<table class="table table-hover table-default">
 					<tr>
 						<td>ID</td>
@@ -46,7 +58,7 @@ $date = date('m/d/Y', strtotime($date_loadout['created_at']));
 							?>
 						</td>
 						<td>
-							<a class="btn btn-info" href="<?php URL ?>view_loadout.php/?id=<?php echo $loadout['id']?>">View</a>	
+							<a href="<?php URL ?>view_loadout.php/?id=<?php echo $loadout['id']?>">View</a>	
 						</td>
 					</tr>
 					<?php } ?>			
@@ -54,6 +66,6 @@ $date = date('m/d/Y', strtotime($date_loadout['created_at']));
 				</table>
 			</div>
 		</div>
-	</div>
 	<?php require_once("includes/db_close_connection.php");  ?>
-	<?php include("includes/layouts/footer.php"); ?>
+</body>
+</html>

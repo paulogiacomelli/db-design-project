@@ -275,6 +275,18 @@ function get_items() {
 	}
 }
 
+function get_items_not_in_loadout($id) {
+	global $conn;
+
+	$sql = "SELECT * FROM items WHERE id NOT IN (SELECT id FROM loadout_items, items WHERE loadout_id = {$id} and item_id = items.id);";
+	$items = $conn->query($sql);
+	if ($items) {
+		return $items;
+	} else {
+		echo "Error: " . $sql . "<br>" . $conn->error;
+	}
+}
+
 function get_loadout_items($id) {
 	global $conn;
 

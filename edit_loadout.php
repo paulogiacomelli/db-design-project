@@ -32,23 +32,23 @@ if (isset($_POST['submit'])) {
 <?php include("includes/layouts/header.php"); ?>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-8 mx-auto">
 			<?php echo message();?>
 				<form class="form" action="edit_loadout.php/?id=<?php echo $loadout['id']; ?>" method="post">
 
 					<div class="form-group">
 						<label>Description</label>
-						<input required type="text" name="description" value="<?php echo $loadout['description'];  ?>">
+						<input class="form-control" required type="text" name="description" value="<?php echo $loadout['description'];  ?>">
 					</div>
 					
 					<div class="form-group">
 						<label>Notes</label>
-						<input required type="text" name="notes" value="<?php echo $loadout['notes'] ?>">
+						<input class="form-control" required type="text" name="notes" value="<?php echo $loadout['notes'] ?>">
 					</div>
 					
 					<div class="form-group">
 						<label>Weather</label>
-						<select name="weather">
+						<select class="form-control" name="weather">
 							<option value="Spring">Spring</option>
 							<option value="Summer">Summer</option>
 							<option value="Winter">Winter</option>
@@ -57,8 +57,10 @@ if (isset($_POST['submit'])) {
 					</div>
 
 					<input class="btn btn-success" value="Edit Loadout" type="submit" name="submit">
+					<a class="btn btn-warning" href="<?php echo URL ?>view_loadout.php/?id=<?php echo $loadout['id']?>">Back to Loadout</a>
 
 				</form>
+
 
 			</div>
 		</div>

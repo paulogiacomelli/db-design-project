@@ -29,31 +29,32 @@ if (isset($_POST['submit'])) {
 	  redirect_to("add_loadout.php");
     } else {
 	  echo "Error: " . $insert . "<br>" . $conn->error;
-      $_SESSION["message"] = "Adding loadout failed.";
+      $_SESSION["errors"] = "Adding loadout failed.";
     }
 }
 ?>
 <?php include("includes/layouts/header.php"); ?>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-8 mx-auto">
+			<?php echo message();?>
 			<?php echo message();?>
 
 				<form class="form" action="add_loadout.php" method="post">
 
 					<div class="form-group">
 						<label>Description</label>
-						<input required type="text" name="description" value="<?php echo $description;  ?>">
+						<input class="form-control" placeholder="Some Description" required type="text" name="description" value="<?php echo $description;  ?>">
 					</div>
 					
 						<div class="form-group">
 						<label>Notes</label>
-						<input required type="text" name="notes" value="<?php echo $notes ?>">
+						<input class="form-control" placeholder="Some Notes"  required type="text" name="notes" value="<?php echo $notes ?>">
 					</div>
 					
 					<div class="form-group">
 						<label>Weather</label>
-						<select name="weather">
+						<select class="form-control"  name="weather">
 							<option value="Spring">Spring</option>
 							<option value="Summer">Summer</option>
 							<option value="Winter">Winter</option>

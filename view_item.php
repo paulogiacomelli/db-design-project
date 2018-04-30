@@ -49,7 +49,7 @@ $item = find_item($id);
 							<?php echo htmlentities($item["link"]); ?>
 						</td>
 						<td>
-							<a href="<?php echo URL ?>edit_item.php/?id=<?php echo $item['id']?>">Edit</a>
+							<a class="btn btn-info" href="<?php echo URL ?>edit_item.php/?id=<?php echo $item['id']?>">Edit</a>
 						</td>
 					</tr>
 				</table>

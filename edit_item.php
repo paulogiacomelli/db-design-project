@@ -39,38 +39,38 @@ if (isset($_POST['submit'])) {
 <?php include("includes/layouts/header.php"); ?>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-8 mx-auto">
 			<?php echo message();?>
 
 				<form class="form" action="edit_item.php/?id=<?php echo $item['id']; ?>" method="post">
 
 					<div class="form-group">
 						<label>Title</label>
-						<input required type="text" name="title" value="<?php echo $item['title'];  ?>">
+						<input class="form-control" required type="text" name="title" value="<?php echo $item['title'];  ?>">
 					</div>
 
 					<div class="form-group">
 						<label>Description</label>
-						<input required type="text" name="description" value="<?php echo $item['description'];  ?>">
+						<input class="form-control" required type="text" name="description" value="<?php echo $item['description'];  ?>">
 					</div>
 					
 					<div class="form-group">
 						<label>Price ($)</label>
-						<input required type="float" name="price" value="<?php echo $item['price'] ?>">
+						<input class="form-control" required type="float" name="price" value="<?php echo $item['price'] ?>">
 					</div>
 					
 					<div class="form-group">
 						<label>Weight</label>
-						<input required type="number" name="weight" value="<?php echo $item['weight']; ?>">
+						<input class="form-control" required type="number" name="weight" value="<?php echo $item['weight']; ?>">
 					</div>
 					<div class="form-group">
 						<label>Link</label>
-						<input required type="text" name="link" value="<?php echo $item['link']; ?>">
+						<input class="form-control" required type="text" name="link" value="<?php echo $item['link']; ?>">
 					</div>
 					
 					<div class="form-group">
 						<label>Item Type</label>
-						<select name="type">
+						<select class="form-control" name="type">
 							<option value="Head">Head</option>
 							<option value="Torso">Torso</option>
 							<option value="Legs">Legs</option>
@@ -79,6 +79,7 @@ if (isset($_POST['submit'])) {
 					</div>
 
 					<input class="btn btn-success" value="Edit Item" type="submit" name="submit">
+					<a class="btn btn-warning" href="<?php echo URL ?>view_item.php/?id=<?php echo $item['id']?>">Back to Item</a>
 
 				</form>
 

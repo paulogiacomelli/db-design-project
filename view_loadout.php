@@ -43,16 +43,19 @@ $items = get_loadout_items($id);
 							<?php echo $date; ?>
 						</td>
 						<td>
-							<a href="<?php echo URL ?>edit_loadout.php/?id=<?php echo $loadout['id']?>">Edit</a>
+							<a class="btn btn-info" href="<?php echo URL ?>edit_loadout.php/?id=<?php echo $loadout['id']?>">Edit</a>
 
 						</td>
 					</tr>
 				</table>
 			</div>
+
 		</div>
 		<div class="row">
 		<div class="col-sm-12">
-			<h2>Items of Loadout</h2>
+			<h2>Loadout Items</h2>
+			<a class="btn btn-success" href="<?php echo URL ?>equip_inventory2.php/?id=<?php echo $loadout['id']?>">Equip Items</a><br>
+			<br><br>
 			<table class="table table-hover table-default">
 					<tr>
 						<td>ID</td>
@@ -91,7 +94,7 @@ $items = get_loadout_items($id);
 							<?php echo htmlentities($item["link"]); ?>
 						</td>
 						<td>
-							<a href="<?php echo URL ?>view_item.php/?id=<?php echo $item['id']?>">View</a>
+							<a class="btn btn-info" href="<?php echo URL ?>view_item.php/?id=<?php echo $item['id']?>">View</a>
 						</td>
 					</tr>
 					<?php } ?>			
